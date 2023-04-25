@@ -11,7 +11,7 @@ This project describes one method of automating the data pipeline, by taking adv
 - [Googlesheets](https://www.google.co.uk/sheets/about) and [Google Drive](https://drive.google.com) for storing the clean data to be supplied to Tableau Public;
 - [Github Actions](https://docs.github.com/en/actions) for automatic deployment.
 
-The project uses a simple data analysis example to illustrate the methods.
+The project uses dummy data generated in R to illustrate the methods. The dashboard containing the final output of this project can be found [here](https://public.tableau.com/views/TableauPublicAuto-Refresh/Dashboard?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link).
 
 ## Getting Started
 
