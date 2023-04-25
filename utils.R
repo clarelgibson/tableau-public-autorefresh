@@ -17,3 +17,9 @@ make_test_data <- function() {
   
   return(df)
 }
+
+# GOOGLE AUTHENTICATION ########################################################
+google_auth <- function() {
+  require(googledrive)
+  require(googlesheets4)
+}
