@@ -11,7 +11,17 @@ This project describes one method of automating the data pipeline, by taking adv
 - [Googlesheets](https://www.google.co.uk/sheets/about) and [Google Drive](https://drive.google.com) for storing the clean data to be supplied to Tableau Public;
 - [Github Actions](https://docs.github.com/en/actions) for automatic deployment.
 
+The project uses a simple data analysis example to illustrate the methods.
+
 ## Getting Started
+
+### Requirements
+
+- RStudio 2023.03.0
+- R 4.2.1
+- A [Google Drive](https://drive.google.com) account
+- A [Tableau Public](https://public.tableau.com/app/discover) account
+- A [Github](https://github.com) account
 
 ## Authors
 
