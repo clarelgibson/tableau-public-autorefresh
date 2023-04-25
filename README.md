@@ -19,6 +19,7 @@ The project uses a simple data analysis example to illustrate the methods.
 
 - RStudio 2023.03.0
 - R 4.2.1
+- R packages (`googledrive` and `googlesheets4`)
 - A [Google Drive](https://drive.google.com) account
 - A [Tableau Public](https://public.tableau.com/app/discover) account
 - A [Github](https://github.com) account
