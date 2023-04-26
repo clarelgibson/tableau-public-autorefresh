@@ -1,38 +1,55 @@
 name: Get Google Drive Data And Plot
 
 on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "main" ]
   schedule:
-    - cron: '0 2 */3 * *'
+    - cron: '0 8 * * *'
 
 jobs:
-  Get-Google-Drive-Data-And-Plot:
-    name: Get Google Drive Data And Plot
+  tableau-public-autorefresh:
+    name: Tableau Public Auto-refresh
     runs-on: ubuntu-latest
+    
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      GOOGLE_AUTHENTICATION_CREDENTIALS: ${{ secrets.GOOGLE_AUTHENTICATION_CREDENTIALS }}
+    
     steps:
-      - uses: actions/checkout@v2
+      #- uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      
       - uses: r-lib/actions/setup-r@v1
+      
       - name: Install libcurl and libssl on Linux
         run: 'sudo apt-get -y install libcurl4-openssl-dev'
         shell: bash
-      - name: Install CRAN packages
-        run: Rscript -e 'install.packages(c("remotes", "googledrive", "purrr", "ggplot2"))'
-      - name: Run GoogleDrive R script
-        run: |
-          source('scripts/Get-GoogleDrive-Data.R')
-        shell: Rscript {0}
-      - name: Run basic plot script
-        run: |
-          source('scripts/Plot-ggplot.R')
-        shell: Rscript {0}
-      - name: Commit results
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add data 
-          git add basic_plots
-          git commit -m 'Data download and create basic plot. TEST' || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
+      
+      #- name: Install CRAN packages
+      #  run: Rscript -e 'install.packages(c("remotes", "googledrive", "purrr", "ggplot2"))'
+      
+      - name: renv package cache
+        id: cache-renv
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-${{ matrix.r-version }}-${{ hashFiles('**/renv.lock') }}
 
+      # Use renv to manage package installation
+      - name: Install and activate renv
+        run: |
+          install.packages("renv@${{ env.RENV_VERSION }}")
+          renv::activate()
+        shell: Rscript {0}
+
+      # Will automatically look for renv.lock in the root of the project
+      - name: Install dependencies
+        run: renv::restore()
+        shell: Rscript {0}      
+      
+      - name: Run prepData script
+        run: |
+          source('R/prepData.R')
+        shell: Rscript {0}
