@@ -24,7 +24,7 @@ google_auth <- function() {
   require(googledrive)
   require(googlesheets4)
   
-  drive_auth()
+  drive_auth(path = Sys.getenv("GOOGLE_AUTHENTICATION_CREDENTIALS"))
   gs4_auth(token = drive_token())
 }
 
