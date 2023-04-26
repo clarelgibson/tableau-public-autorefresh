@@ -1,0 +1,38 @@
+name: Get Google Drive Data And Plot
+
+on:
+  schedule:
+    - cron: '0 2 */3 * *'
+
+jobs:
+  Get-Google-Drive-Data-And-Plot:
+    name: Get Google Drive Data And Plot
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install libcurl and libssl on Linux
+        run: 'sudo apt-get -y install libcurl4-openssl-dev'
+        shell: bash
+      - name: Install CRAN packages
+        run: Rscript -e 'install.packages(c("remotes", "googledrive", "purrr", "ggplot2"))'
+      - name: Run GoogleDrive R script
+        run: |
+          source('scripts/Get-GoogleDrive-Data.R')
+        shell: Rscript {0}
+      - name: Run basic plot script
+        run: |
+          source('scripts/Plot-ggplot.R')
+        shell: Rscript {0}
+      - name: Commit results
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add data 
+          git add basic_plots
+          git commit -m 'Data download and create basic plot. TEST' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
+
