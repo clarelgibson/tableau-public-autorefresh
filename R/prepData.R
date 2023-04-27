@@ -24,23 +24,23 @@ df <- make_test_data()
 # EXPORT DATA ##################################################################
 # > Connect to Google ==========================================================
 # Calling this function will open browser to complete authentication
-google_auth()
-
-# > Make project folder ========================================================
-make_gdrive_folder(gdrive_dir)
-
-# > Make google sheet file =====================================================
-make_gdrive_sheet(
-  name = gdrive_sheet,
-  path = gdrive_dir
-)
-
-# > Store id of new file =======================================================
-gdrive_sheet_id <- as_dribble(gdrive_sheet)$id
-
-# > Append data into sheet =====================================================
-sheet_write(
-  data = df,
-  ss = as_dribble(gdrive_sheet),
-  sheet = "Sheet1"
-)
+# google_auth()
+# 
+# # > Make project folder ========================================================
+# make_gdrive_folder(gdrive_dir)
+# 
+# # > Make google sheet file =====================================================
+# make_gdrive_sheet(
+#   name = gdrive_sheet,
+#   path = gdrive_dir
+# )
+# 
+# # > Store id of new file =======================================================
+# gdrive_sheet_id <- as_dribble(gdrive_sheet)$id
+# 
+# # > Append data into sheet =====================================================
+# sheet_write(
+#   data = df,
+#   ss = as_dribble(gdrive_sheet),
+#   sheet = "Sheet1"
+# )
