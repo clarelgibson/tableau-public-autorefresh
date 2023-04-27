@@ -24,8 +24,8 @@ df <- make_test_data()
 # EXPORT DATA ##################################################################
 # > Connect to Google ==========================================================
 # Calling this function will open browser to complete authentication
-# google_auth()
-# 
+google_auth()
+
 # # > Make project folder ========================================================
 # make_gdrive_folder(gdrive_dir)
 # 
