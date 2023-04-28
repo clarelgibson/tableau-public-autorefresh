@@ -26,9 +26,9 @@ df <- make_test_data()
 # Calling this function will open browser to complete authentication
 google_auth()
 
-# # > Make project folder ========================================================
-# make_gdrive_folder(gdrive_dir)
-# 
+# > Make project folder ========================================================
+make_gdrive_folder(gdrive_dir)
+
 # # > Make google sheet file =====================================================
 # make_gdrive_sheet(
 #   name = gdrive_sheet,
