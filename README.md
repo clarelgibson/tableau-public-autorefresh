@@ -1,6 +1,6 @@
 # Tableau Public Auto-refresh <img src="./assets/img/logo.png" align="right" width="200" style="margin-left:50px;"/>
 
-This project explores how to use R, Googlesheets and Tableau Public in conjunction to create an automated data pipeline.
+This project explores how to use R, Google Drive, Google Sheets, Github Actions and Tableau Public in conjunction to create an automated data pipeline.
 
 ## Description
 [Tableau Public](https://public.tableau.com/app/discover) is a free platform for exploring, creating and publicly sharing data visualizations online. The free-to-use nature of Tableau Public comes with some limitations, one of which is the restrictions around scheduled refreshing of the source data for your dashboards. If you have ever developed a Tableau Public dashboard that uses data that changes over time, you may have found yourself manually refreshing your data in the desktop application and then republishing to Tableau Public online.
