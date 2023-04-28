@@ -25,7 +25,6 @@ google_auth <- function() {
   require(googlesheets4)
   
   drive_auth(path = Sys.getenv("GOOGLE_AUTHENTICATION_CREDENTIALS"))
-  #drive_auth(path = "./keys/tableau-public-autorefresh-215dc8244e1b.json")
   gs4_auth(token = drive_token())
 }
 

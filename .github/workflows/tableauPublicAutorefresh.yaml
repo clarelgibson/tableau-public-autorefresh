@@ -20,7 +20,6 @@ jobs:
       RENV_VERSION: "0.17.3"
     
     steps:
-      #- uses: actions/checkout@v2
       - uses: actions/checkout@v3
       
       - uses: r-lib/actions/setup-r@v2
@@ -28,9 +27,6 @@ jobs:
       - name: Install libcurl and libssl on Linux
         run: 'sudo apt-get -y install libcurl4-openssl-dev'
         shell: bash
-      
-      #- name: Install CRAN packages
-      #  run: Rscript -e 'install.packages(c("remotes", "googledrive", "purrr", "ggplot2"))'
       
       - name: renv package cache
         id: cache-renv
