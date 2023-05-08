@@ -13,6 +13,10 @@ This project describes one method of automating the data pipeline, by taking adv
 
 The project uses dummy data generated in R to illustrate the methods. The dashboard containing the final output of this project can be found [here](https://public.tableau.com/views/TableauPublicAuto-Refresh/Dashboard?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link).
 
+## Full Documenation
+
+See the [Wiki](https://github.com/clarelgibson/tableau-public-autorefresh/wiki) for full documentation, examples, operational details and other information.
+
 ## Getting Started
 
 ### Requirements
