@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       GOOGLE_AUTHENTICATION_CREDENTIALS: ${{ secrets.GOOGLE_AUTHENTICATION_CREDENTIALS }}
       RENV_PATHS_ROOT: ~/.local/share/renv
       RENV_VERSION: "0.17.3"
